@@ -1,17 +1,22 @@
 import pytest
 
+
 def test_add_2_and_2_should_equal_4():
     """ This test checks that 2 and 2 equals 4.
         As that is true, the test will pass
     """
-    assert 2 + 2 == 4
+    our_result = 2 + 2
+
+    assert our_result == 4
 
 
 def test_add_2_and_2_should_equal_5():
     """ This test checks that 2 and 2 equals 5.
         As that is true, the test will fail
     """
-    assert 2 + 2 == 5
+    our_result = 2 + 2
+
+    assert our_result == 5
 
 
 def test_add_2_and_2_should_equal_5_fails_with_supplied_message():
@@ -19,7 +24,9 @@ def test_add_2_and_2_should_equal_5_fails_with_supplied_message():
         As that is not true, the test will fail again,
         but this time with the specified message
     """
-    assert 2 + 2 == 5, "2 and 2 should equal 5"
+    our_result = 2 + 2
+
+    assert our_result == 5, "2 and 2 should equal 5"
 
 
 def test_create_boolean_with_value_true_check_that_value_is_true():
@@ -59,3 +66,13 @@ def test_check_dividing_by_zero_raises_valueerror():
     """
     with pytest.raises(ValueError):
         our_result = 2 / 0
+
+
+def test_check_dividing_by_zero_raises_zerodivisionerror_but_doesnt():
+    """ This test uses a 'with pytest.raises' construct
+        to check that a code statement raises a specific type of error,
+        in this case a ZeroDivisionError.
+        Since no error is raised at all, the test will fail.
+    """
+    with pytest.raises(ZeroDivisionError):
+        our_result = 2 / 1
